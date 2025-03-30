@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract NFTLand is ERC721, Ownable {
+contract NFTLand is ERC721URIStorage, Ownable {
     uint256 public tokenCounter;
     // Mapping from tokenId to encrypted metadata (for genesis tokens)
     mapping(uint256 => string) public tokenData;
@@ -30,10 +30,16 @@ contract NFTLand is ERC721, Ownable {
     }
 
     // Append an update to an existing NFT (does not change the original token)
-    function updateNFT(uint256 genesisTokenId, string memory updatedEncryptedData) public {
-        require(ownerOf(genesisTokenId) == msg.sender, "Only owner can update");
-        tokenUpdates[genesisTokenId].push(updatedEncryptedData);
-        uint256 updateIndex = tokenUpdates[genesisTokenId].length - 1;
-        emit NFTUpdated(genesisTokenId, updateIndex, updatedEncryptedData);
+    function updateNFT(uint256 tokenId, string memory updatedEncryptedData) public {
+        require(ownerOf(tokenId) == msg.sender, "Only owner can update");
+        tokenUpdates[tokenId].push(updatedEncryptedData);
+        tokenData[tokenId] = updatedEncryptedData;
+        _setTokenURI(tokenId, updatedEncryptedData);
+        emit NFTUpdated(tokenId, tokenUpdates[tokenId].length - 1, updatedEncryptedData);
     }
+
+    function getUpdateCount(uint256 tokenId) public view returns (uint256) {
+        return tokenUpdates[tokenId].length;
+    }
+
 }
