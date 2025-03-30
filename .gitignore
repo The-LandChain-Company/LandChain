@@ -1,15 +1,15 @@
-# Node modules folder (do not commit these)
+
 node_modules/
 
-# Artifacts and cache from Hardhat
+
 artifacts/
 cache/
 
-# Environment file (keep your private keys safe!)
+
 .env
 
 # Logs
 *.log
 
-# Optional: ignore build folders if you add them later
+
 build/
