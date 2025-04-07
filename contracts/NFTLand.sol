@@ -14,7 +14,7 @@ contract NFTLand is ERC721URIStorage, Ownable {
     event NFTMinted(uint256 tokenId, address owner, string data);
     event NFTUpdated(uint256 genesisTokenId, uint256 updateIndex, string updatedData);
 
-    constructor() ERC721("LandRecord", "LAND") Ownable(msg.sender) {
+    constructor() ERC721("LandChain", "LAND") Ownable(msg.sender) {
     tokenCounter = 0;
 }
 
