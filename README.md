@@ -1,3 +1,4 @@
+SPDX-License-Identifier: Apache-2.0
 # 🏛️ LandChain
 
 > A decentralized land record management system built on the Polygon blockchain, integrating encrypted document storage, NFT-based ownership, INR tokenization, and UPI/card payments.
