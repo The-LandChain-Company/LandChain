@@ -13,11 +13,9 @@
 ## 🔗 Live Contracts
 
 - **Polygon Amoy (Testnet)**  
-  - NFT Contract: [`0xYourContractAddress`](#)  
-  - Token Contract: [`0xYourINRTokenAddress`](#)  
+  - NFT Contract: [`0x3C741947476A084A7b888E78cA155A1BbEb37A46`]([#](https://amoy.polygonscan.com/address/0x3C741947476A084A7b888E78cA155A1BbEb37A46))  
+  - Token Contract: [`0xe21dF63B4e1aE83E62E4EfA0AfeFFf2D979f2a61`]([#](https://amoy.polygonscan.com/address/0x3C741947476A084A7b888E78cA155A1BbEb37A46))  
   - Proxy (Coming Soon)
-
-> ⚠️ All smart contracts are upgradeable and adhere to OpenZeppelin UUPS proxies.
 
 ---
 
@@ -50,60 +48,15 @@
 
 ## 🧪 Testing
 
-1. Clone this repo:
-    ```bash
-    git clone https://github.com/your-org/landchain.git
-    cd landchain
-    ```
+NFT(0x3C741947476A084A7b888E78cA155A1BbEb37A46) - Test using Remix QuickDApp at [`NFTLAND`]([https://landchainnft.surge.sh](https://landchainnft.surge.sh))
+Logs(0xe21dF63B4e1aE83E62E4EfA0AfeFFf2D979f2a61) - Test using Remix QuickDApp at [`ACTIONLOGGER`]([https://landchainnft.surge.sh](https://landchainlogger.surge.sh))
 
-2. Install dependencies:
-    ```bash
-    npm install
-    ```
+## 💰 Payments & Tokenization (Coming up)
 
-3. Compile and test contracts:
-    ```bash
-    npx hardhat compile
-    npx hardhat test
-    ```
-
----
-
-## ⚙️ Deployment
-
-### 🔹 To Deploy on Polygon Mainnet:
-
-1. Set up `.env`:
-    ```env
-    PRIVATE_KEY=your_wallet_private_key
-    POLYGON_RPC=https://polygon-rpc.com
-    ```
-
-2. Run:
-    ```bash
-    npx hardhat run scripts/deploy.js --network polygon
-    ```
-
----
-
-## 💰 Payments & Tokenization
-
-- Users pay ₹300 INR to mint a land NFT.
+- Users pay in INR to mint a land NFT.
 - Payments are processed via RazorPay (card/UPI).
 - The platform mints equivalent INR tokens internally for on-chain use.
 - Token transfers reflect real-world currency transactions securely.
-
----
-
-## 📅 Roadmap
-
-| Phase | Milestone |
-|-------|-----------|
-| ✅ Phase 1 | NFT Smart Contract + Encryption Logic |
-| 🔄 Phase 2 | DApp Integration + Logging + Upgradable Contracts |
-| 🟩 Phase 3 | INR Payments + Aadhaar Verification |
-| 🟨 Phase 4 | Government Portal & Production Deployment |
-| 🟪 Phase 5 | Mobile App Launch (Play Store + App Store) |
 
 ---
 
@@ -115,16 +68,8 @@
 
 ---
 
-## 🧠 Credits
-
-- **Team LandChain**
-- Mentors from Inventure Changemaker Challenge 2024
-- Built with ❤️ on Polygon
-
----
-
 ## 🌐 Visit Us
 
 📎 Website: [https://landchain.in](https://landchain.in)  
-🛠️ GitHub: [github.com/your-org/landchain](https://github.com/your-org/landchain)
+🛠️ GitHub: [/Anish-MutliTalent/LandChain](https://github.com/Anish-MutliTalent/LandChain)
 
