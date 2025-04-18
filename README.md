@@ -48,8 +48,8 @@
 
 ## 🧪 Testing
 
-NFT(0x3C741947476A084A7b888E78cA155A1BbEb37A46) - Test using Remix QuickDApp at [https://landchainnft.surge.sh](https://landchainnft.surge.sh)
-Logs(0xe21dF63B4e1aE83E62E4EfA0AfeFFf2D979f2a61) - Test using Remix QuickDApp at [https://landchainnft.surge.sh](https://landchainlogger.surge.sh)
+- NFT(0x3C741947476A084A7b888E78cA155A1BbEb37A46) - Test using Remix QuickDApp at [`landchainnft.surge.sh`](https://landchainnft.surge.sh)
+- Logs(0xe21dF63B4e1aE83E62E4EfA0AfeFFf2D979f2a61) - Test using Remix QuickDApp at [`landchainlogger.surge.sh`](https://landchainlogger.surge.sh)
 
 ## 💰 Payments & Tokenization (Coming up)
 
