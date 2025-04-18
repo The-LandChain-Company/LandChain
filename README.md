@@ -1,7 +1,7 @@
 # 🏛️ LandChain
 
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-![OIN Member](https://img.shields.io/badge/OIN-Member-blue)
+[![OIN Member](https://openinventionnetwork.com/download/47492/)](https://openinventionnetwork.com/download/47492/)
 
 > A decentralized land record management system built on the Polygon blockchain, integrating encrypted document storage, NFT-based ownership, INR tokenization, and UPI/card payments.
 
