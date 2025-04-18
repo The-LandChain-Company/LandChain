@@ -51,8 +51,8 @@
 
 ## 🧪 Testing
 
-- NFT(0x3C741947476A084A7b888E78cA155A1BbEb37A46) - Test using Remix QuickDApp at [`landchainnft.surge.sh`](https://landchainnft.surge.sh)
-- Logs(0xe21dF63B4e1aE83E62E4EfA0AfeFFf2D979f2a61) - Test using Remix QuickDApp at [`landchainlogger.surge.sh`](https://landchainlogger.surge.sh)
+- NFT `0x3C741947476A084A7b888E78cA155A1BbEb37A46` - Test using Remix QuickDApp at [`landchainnft.surge.sh`](https://landchainnft.surge.sh)
+- Logs `0xe21dF63B4e1aE83E62E4EfA0AfeFFf2D979f2a61` - Test using Remix QuickDApp at [`landchainlogger.surge.sh`](https://landchainlogger.surge.sh)
 
 ## 💰 Payments & Tokenization (Coming up)
 
@@ -74,5 +74,5 @@
 ## 🌐 Visit Us
 
 📎 Website: [https://landchain.in](https://landchain.in)  
-🛠️ GitHub: [/Anish-MutliTalent/LandChain](https://github.com/Anish-MutliTalent/LandChain)
+🛠️ GitHub: [/The-LandChain-Company/LandChain](https://github.com/The-LandChain-Company/LandChain)
 
