@@ -54,12 +54,26 @@
 - NFT `0x3C741947476A084A7b888E78cA155A1BbEb37A46` - Test using Remix QuickDApp at [`landchainnft.surge.sh`](https://landchainnft.surge.sh)
 - Logs `0xe21dF63B4e1aE83E62E4EfA0AfeFFf2D979f2a61` - Test using Remix QuickDApp at [`landchainlogger.surge.sh`](https://landchainlogger.surge.sh)
 
-## 💰 Payments & Tokenization (Coming up)
+## Additional Important Features (Yet unimplemented)
+
+### 💰 Payments & Tokenization
 
 - Users pay in INR to mint a land NFT.
 - Payments are processed via RazorPay (card/UPI).
 - The platform mints equivalent INR tokens internally for on-chain use.
 - Token transfers reflect real-world currency transactions securely.
+
+### 🧩 Splitting and Merging Land NFTs
+
+- Each land parcel is represented by an NFT (ERC-721 or ERC-3525). You can extend this with metadata and a polygonal boundary (e.g., via GeoJSON or WKT). To support split/merge:
+- Split = burn 1 NFT → mint N new NFTs
+- Merge = burn N NFTs → mint 1 new NFT
+- Split/Merged land is transferred safely
+
+### 🌏 Geo-Spatial Metadata & Validation
+- Ensure no overlaps with other land
+- Adjacent parcels are merged cleanly
+- Area balances out post-split/merge
 
 ---
 
