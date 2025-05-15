@@ -1,3 +1,4 @@
+from pathlib import Path
 from flask import current_app
 from web3 import Web3  # Make sure Web3 is imported for type hinting and utilities
 
@@ -5,7 +6,6 @@ from web3 import Web3  # Make sure Web3 is imported for type hinting and utiliti
 # This assumes your app/__init__.py defines w3, nft_land_contract, etc. globally within that file
 # and they are not None.
 from . import w3, nft_land_contract, action_logger_contract, nft_marketplace_contract
-
 
 def log_action_on_chain(user_address, action_description, details_json_str, acting_as_address=None):
     if not action_logger_contract:  # Check if contract instance is valid

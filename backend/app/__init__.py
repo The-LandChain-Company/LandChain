@@ -40,30 +40,20 @@ def create_app(config_class=Config):
     if not w3.is_connected():
         raise ConnectionError("Failed to connect to Polygon RPC")
 
-    def load_contract(address_key, abi_path_key):
-        contract_address = app.config.get(address_key)
-        abi_path = app.config.get(abi_path_key)
-        if not contract_address or not abi_path:
-            # Allow some contracts to be optional if not immediately needed or for partial setups
-            app.logger.warning(f"{address_key} or {abi_path_key} not configured.")
-            return None
-        try:
-            with open(abi_path) as f:
-                abi = json.load(f)
-            return w3.eth.contract(address=Web3.to_checksum_address(contract_address), abi=abi)
-        except FileNotFoundError:
-            app.logger.error(f"ABI file not found: {abi_path}")
-            return None
-        except Exception as e:
-            app.logger.error(f"Error loading contract {address_key}: {e}")
-            return None
+    contract_abi = open(Path(__file__).parent / "abi" / app.config.get('NFT_LAND_CONTRACT_ABI_PATH'), 'r').read()
+    # Set the contract address (replace with your contract's deployed address)
+    contract_address = app.config.get('NFT_LAND_CONTRACT_ADDRESS')
+    nft_land_contract = w3.eth.contract(address=Web3.to_checksum_address(contract_address), abi=contract_abi)
 
-    nft_land_contract = load_contract('NFT_LAND_CONTRACT_ADDRESS',
-                                      f"{Path(__file__).parent / "abi" / 'NFT_LAND_CONTRACT_ABI_PATH'}")
-    action_logger_contract = load_contract('ACTION_LOGGER_CONTRACT_ADDRESS',
-                                           f"{Path(__file__).parent / "abi" / 'ACTION_LOGGER_CONTRACT_ABI_PATH'}")
-    nft_marketplace_contract = load_contract('NFT_MARKETPLACE_CONTRACT_ADDRESS',
-                                             f"{Path(__file__).parent / "abi" / 'NFT_MARKETPLACE_CONTRACT_ABI_PATH'}")
+    contract_abi = open(Path(__file__).parent / "abi" / app.config.get('ACTION_LOGGER_CONTRACT_ABI_PATH'), 'r').read()
+    # Set the contract address (replace with your contract's deployed address)
+    contract_address = app.config.get('ACTION_LOGGER_CONTRACT_ADDRESS')
+    action_logger_contract = w3.eth.contract(address=Web3.to_checksum_address(contract_address), abi=contract_abi)
+
+    contract_abi = open(Path(__file__).parent / "abi" / app.config.get('NFT_MARKETPLACE_CONTRACT_ABI_PATH'), 'r').read()
+    # Set the contract address (replace with your contract's deployed address)
+    contract_address = app.config.get('NFT_MARKETPLACE_CONTRACT_ADDRESS')
+    nft_marketplace_contract = w3.eth.contract(address=Web3.to_checksum_address(contract_address), abi=contract_abi)
 
     # Blueprints
     from .routes import bp as main_bp

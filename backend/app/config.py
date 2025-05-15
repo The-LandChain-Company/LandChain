@@ -1,5 +1,6 @@
 import os
 from dotenv import load_dotenv
+from pathlib import Path
 
 load_dotenv()
 
@@ -10,12 +11,17 @@ class Config:
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     POLYGON_RPC_URL = os.environ.get('POLYGON_RPC_URL')
-    NFT_LAND_CONTRACT_ADDRESS = os.environ.get('NFT_LAND_CONTRACT_ADDRESS')
-    NFT_LAND_CONTRACT_ABI_PATH = "NFTLand.json"
-    ACTION_LOGGER_CONTRACT_ADDRESS = os.environ.get('ACTION_LOGGER_CONTRACT_ADDRESS')
-    ACTION_LOGGER_CONTRACT_ABI_PATH = "ActionLogger.json"
-    NFT_MARKETPLACE_CONTRACT_ADDRESS = os.environ.get('NFT_MARKETPLACE_CONTRACT_ADDRESS')
-    NFT_MARKETPLACE_CONTRACT_ABI_PATH = "NFTMarketplace.json"
+
+    # Contract Addresses
+    NFT_LAND_CONTRACT_ADDRESS = os.getenv('NFT_LAND_CONTRACT_ADDRESS')
+    ACTION_LOGGER_CONTRACT_ADDRESS = os.getenv('ACTION_LOGGER_CONTRACT_ADDRESS')
+    NFT_MARKETPLACE_CONTRACT_ADDRESS = os.getenv('NFT_MARKETPLACE_CONTRACT_ADDRESS')
+
+    # ABI Paths - construct full paths
+    BASE_DIR = Path(__file__).parent
+    NFT_LAND_CONTRACT_ABI_PATH = str(BASE_DIR / 'abi' / os.getenv('NFT_LAND_CONTRACT_ABI_PATH', 'NFTLand.json'))
+    ACTION_LOGGER_CONTRACT_ABI_PATH = str(BASE_DIR / 'abi' / os.getenv('ACTION_LOGGER_CONTRACT_ABI_PATH', 'ActionLogger.json'))
+    NFT_MARKETPLACE_CONTRACT_ABI_PATH = str(BASE_DIR / 'abi' / os.getenv('NFT_MARKETPLACE_CONTRACT_ABI_PATH', 'NFTMarketplace.json'))
 
     WEB3AUTH_CLIENT_ID = os.environ.get('WEB3AUTH_CLIENT_ID')
     GOOGLE_CLIENT_ID = os.environ.get('GOOGLE_CLIENT_ID')
