@@ -84,19 +84,19 @@ const CompleteProfileForm = () => {
                 {/* Reusing form elements */}
                 <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-1">Name *</label>
-                    <input type="text" id="name" name="name" value={userDetails.name} onChange={handleChange} placeholder="Full Name" required disabled={isLoading} />
+                    <input className="input-field" type="text" id="name" name="name" value={userDetails.name} onChange={handleChange} placeholder="Full Name" required disabled={isLoading} />
                 </div>
                 <div>
                    <label htmlFor="age" className="block text-sm font-medium text-gray-300 mb-1">Age</label>
-                   <input type="number" id="age" name="age" value={userDetails.age} onChange={handleChange} placeholder="Age" disabled={isLoading} />
+                   <input className="input-field" type="number" id="age" name="age" value={userDetails.age} onChange={handleChange} placeholder="Age" disabled={isLoading} />
                 </div>
                 <div>
                    <label htmlFor="address" className="block text-sm font-medium text-gray-300 mb-1">Physical Address</label>
-                   <input type="text" id="address" name="address" value={userDetails.address} onChange={handleChange} placeholder="Physical Address" disabled={isLoading} />
+                   <input className="input-field" type="text" id="address" name="address" value={userDetails.address} onChange={handleChange} placeholder="Physical Address" disabled={isLoading} />
                 </div>
                 <div>
                     <label htmlFor="gender" className="block text-sm font-medium text-gray-300 mb-1">Gender</label>
-                    <select id="gender" name="gender" value={userDetails.gender} onChange={handleChange} disabled={isLoading}>
+                    <select className="input-field" id="gender" name="gender" value={userDetails.gender} onChange={handleChange} disabled={isLoading}>
                         <option value="">Select Gender</option>
                         <option value="male">Male</option>
                         <option value="female">Female</option>
@@ -104,7 +104,7 @@ const CompleteProfileForm = () => {
                         <option value="prefer_not_to_say">Prefer not to say</option>
                     </select>
                 </div>
-                <button type="submit" className="w-full button" disabled={isLoading}>
+                <button type="submit" className="input-field" disabled={isLoading}>
                     {isLoading ? <LoadingSpinner /> : null} Save & Continue
                 </button>
             </form>
