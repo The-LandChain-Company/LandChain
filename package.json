@@ -1,21 +1,19 @@
 {
-  "name": "landchain",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@nomiclabs/hardhat-ethers": "^2.2.3",
-    "ethers": "^5.8.0",
-    "hardhat": "^2.22.19"
-  },
   "dependencies": {
-    "@openzeppelin/contracts": "^5.2.0",
-    "dotenv": "^16.4.7"
+    "@metamask/logo": "^4.0.0",
+    "@react-google-maps/api": "^2.20.6",
+    "@tailwindcss/vite": "^4.1.5",
+    "axios": "^1.9.0",
+    "ipfs-http-client": "^60.0.1",
+    "node-fetch": "^3.3.2",
+    "react-icons": "^5.5.0",
+    "react-quill": "^2.0.0",
+    "react-quill-new": "^3.4.6",
+    "react-router-dom": "^7.5.3"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.21",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.5"
   }
 }
