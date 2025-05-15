@@ -123,7 +123,7 @@ const DashboardPage = () => {
         <div className="flex-grow overflow-y-auto p-6">
           {isLoadingProfile ? (
             <div className="flex justify-center items-center h-full">
-              <LoadingSpinner /> <span className="ml-3">Loading Profile...</span>
+              <LoadingSpinner className='text-white'/> <span className="ml-3">Loading Profile...</span>
             </div>
           ) : profileError ? (
              <div className="text-center text-red-400">{profileError}</div>

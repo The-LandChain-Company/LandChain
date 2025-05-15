@@ -21,7 +21,7 @@ def create_app(config_class=Config):
     app.config.from_object(config_class)
     app.config['MAX_CONTENT_LENGTH'] = 16 * 1024 * 1024
 
-    CORS(app, origins=["https://demo.landchain.in"], supports_credentials=True)
+    CORS(app, supports_credentials=True)
 
     # Configure Flask logger if not already done elsewhere
     if not app.debug:  # Example: Log more in production
