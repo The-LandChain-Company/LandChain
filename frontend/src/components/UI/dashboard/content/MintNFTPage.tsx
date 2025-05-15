@@ -1,11 +1,18 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, lazy, Suspense } from 'react';
 import axios from 'axios';
 import ReactQuill, { Quill } from 'react-quill-new';
 import 'react-quill-new/dist/quill.snow.css';
 const ReactQuillComponent = ReactQuill as unknown as React.FC<any>;
 import { useActiveAccount, useActiveWallet } from 'thirdweb/react';
-import { GoogleMap, MarkerF } from '@react-google-maps/api';
-const WrappedGoogleMap = GoogleMap as unknown as React.FC<any>;
+import { MarkerF, useLoadScript } from '@react-google-maps/api';
+import LoadingSpinner from '../../LoadingSpinner';
+
+// Lazy load the Google Map component
+const LazyGoogleMap = lazy(() =>
+    import('@react-google-maps/api').then((module) => ({ 
+        default: module.GoogleMap as unknown as React.ComponentType<any> 
+    }))
+);
 import { useDashboardContext } from '../../../../pages/DashboardPage';
 import { useNavigate } from 'react-router-dom';            // ✅ add
 import { client } from '../../../../lib/thirdweb';
@@ -309,6 +316,10 @@ if (receipt.status === "success") {
     }
 };
 
+const { isLoaded } = useLoadScript({
+        googleMapsApiKey: '',
+    });
+
   return (
     <form onSubmit={handleSubmit}>
       {/* … your existing form inputs, map, file selectors … */}
@@ -444,14 +455,20 @@ if (receipt.status === "success") {
             <label className="block text-sm mb-1">
               Pick Location on Map
             </label>
-              <WrappedGoogleMap
-                mapContainerStyle={MAP_CONTAINER_STYLE}
-                center={marker || DEFAULT_CENTER}
-                zoom={marker ? 15 : 5}
-                onClick={onMapClick}
-              >
-                {marker && <MarkerF position={marker} />}
-            </WrappedGoogleMap>
+              <Suspense fallback={<LoadingSpinner />}>
+              {isLoaded ? (
+                <LazyGoogleMap
+                  mapContainerStyle={MAP_CONTAINER_STYLE}
+                  center={marker || DEFAULT_CENTER}
+                  zoom={marker ? 15 : 5}
+                  onClick={onMapClick}
+                >
+                  {marker && <MarkerF position={marker} />}
+              </LazyGoogleMap>
+              ) : (
+                  <LoadingSpinner className="text-white" />
+              )}
+            </Suspense>
             {marker && (
               <p className="mt-2 text-xs text-gray-300">
                 Coordinates: {formData.geoCoordinates} <br />
