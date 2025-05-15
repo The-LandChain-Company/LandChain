@@ -13,7 +13,7 @@ export default defineConfig({
     proxy: {
       // Proxy API requests to Flask backend
       '/api': { // Match requests starting with /api
-        target: 'http://127.0.0.1:5000', // Your backend address
+        target: 'https://api.landchain.in', // Your backend address
         changeOrigin: true, // Needed for virtual hosted sites
         rewrite: (path) => path.replace(/^\/api/, ''), // Remove /api prefix before sending to backend
         secure: false, // Allow proxying to HTTP backend
