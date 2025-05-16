@@ -1,9 +1,13 @@
 import requests
 from werkzeug.datastructures import FileStorage
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 # Pinata API credentials
-PINATA_API_KEY = '92efcee5d06e8fa01f88'
-PINATA_SECRET_API_KEY = '8470cb03e5debce68c3abdf91f2f722c3c85713be1046d12e473f73ff6c4b8b8'
+PINATA_API_KEY = os.environ.get('PINATA_API_KEY')
+PINATA_SECRET_API_KEY = os.environ.get('PINATA_SECRET_API_KEY')
 
 
 def upload_json(data: dict) -> str:
