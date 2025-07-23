@@ -339,7 +339,7 @@ def get_listings():
 @login_required
 def prepare_list_tx():
     data = request.get_json()
-    nft_contract_address = data.get('nftContractAddress')  # e.g., NFTLand address
+    nft_contract_address = data.get('nftContractAddress')
     token_id = data.get('tokenId', type=int)
     price_matic = data.get('priceMatic', type=float)
 
@@ -350,40 +350,29 @@ def prepare_list_tx():
 
     price_wei = Web3.to_wei(price_matic, 'ether')
 
-    # Client needs to ensure marketplace contract is approved for this token_id or all tokens
-    # This check can also be done on frontend before calling this.
-
     return jsonify({
         "marketplace_contract_address": current_app.config['NFT_MARKETPLACE_CONTRACT_ADDRESS'],
         "function_name": "listNFT",
         "args": [Web3.to_checksum_address(nft_contract_address), token_id, price_wei],
-        "message": "Client should use these details to construct and sign the listNFT transaction. Ensure approval "
-                   "first."
+        "message": "Client should use these details to construct and sign the listNFT transaction."
     }), 200
 
 
-@bp.route('/market/prepare_buy_tx', methods=['POST'])
+@bp.route('/market/prepare_unlist_tx', methods=['POST'])
 @login_required
-def prepare_buy_tx():
+def prepare_unlist_tx():
     data = request.get_json()
     nft_contract_address = data.get('nftContractAddress')
     token_id = data.get('tokenId', type=int)
-    price_wei_str = data.get('priceWei')  # Price should come from the listing details
 
-    if not all([nft_contract_address, isinstance(token_id, int), price_wei_str]):
+    if not all([nft_contract_address, isinstance(token_id, int)]):
         return jsonify({"error": "Missing or invalid parameters"}), 400
-
-    try:
-        price_wei = int(price_wei_str)  # Assuming price_wei is passed as string from client
-    except ValueError:
-        return jsonify({"error": "Invalid priceWei format"}), 400
 
     return jsonify({
         "marketplace_contract_address": current_app.config['NFT_MARKETPLACE_CONTRACT_ADDRESS'],
-        "function_name": "buyNFT",
+        "function_name": "unlistNFT",
         "args": [Web3.to_checksum_address(nft_contract_address), token_id],
-        "payable_value_wei": str(price_wei),  # Value to send with transaction
-        "message": "Client should use these details to construct and sign the buyNFT transaction."
+        "message": "Client should use these details to construct and sign the unlistNFT transaction."
     }), 200
 
 
